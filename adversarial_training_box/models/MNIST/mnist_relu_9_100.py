@@ -3,9 +3,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class MNIST_RELU_9_100(nn.Module):
-    def __init__(self):
+    def __init__(self, name = "mnist_relu_9_100"):
         super(MNIST_RELU_9_100, self).__init__()
-        self.name = "mnist_relu_9_100"
+        self.name = name
         self.layer1 = nn.Linear(784, 100)
         self.layer2 = nn.Linear(100, 100)
         self.layer3 = nn.Linear(100, 100)

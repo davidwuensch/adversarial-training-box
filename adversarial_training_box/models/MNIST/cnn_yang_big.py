@@ -5,8 +5,8 @@ import torch.nn.functional as F
 # Architecture CNN2 from Yang et al. A Closer Look at Accuracy vs. Robustness
 
 class CNN_YANG_BIG(nn.Module):
-    def __init__(self):
-        self.name = "cnn_yang_big"
+    def __init__(self, name = "cnn_yang_big"):
+        self.name = name
         super(CNN_YANG_BIG, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, 3)
         self.conv2 = nn.Conv2d(32, 32, 3)

@@ -6,8 +6,8 @@ import torch.nn.functional as F
 
 class CNN_MADRY_MEDIUM(torch.nn.Module):
 
-    def __init__(self):
-        self.name = "cnn_madry_medium"
+    def __init__(self, name="cnn_madry_medium"):
+        self.name = name
         super(CNN_MADRY_MEDIUM, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, 5, 1, 2)
         self.conv2 = nn.Conv2d(32, 64, 5, 1, 2)
