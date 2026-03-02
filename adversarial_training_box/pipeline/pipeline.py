@@ -1,3 +1,4 @@
+from adversarial_training_box.pipeline.early_stopper import EarlyStopper
 import torch
 import time
 import platform
@@ -23,7 +24,7 @@ class Pipeline:
     def save_model(self, network):
         self.experiment_tracker.save_model(network)
 
-    def train(self, train_loader: torch.utils.data.DataLoader, network: torch.nn.Module, training_stack: list[int, TrainingModule], validation_module: TestModule = None, validation_loader: torch.utils.data.DataLoader = None, early_stopper = None):
+    def train(self, train_loader: torch.utils.data.DataLoader, network: torch.nn.Module, training_stack: list[int, TrainingModule], validation_module: TestModule = None, validation_loader: torch.utils.data.DataLoader = None, early_stopper : EarlyStopper = None):
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         network.to(device)
 
