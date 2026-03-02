@@ -5,8 +5,8 @@ import torch.nn.functional as F
 class CNN_SMALL(torch.nn.Module):
     """Basic CNN architecture."""
 
-    def __init__(self, in_channels=1):
-        self.name = "cnn_small"
+    def __init__(self, in_channels=1, name = "cnn_small"):
+        self.name = name
         super(CNN_SMALL, self).__init__()
         self.conv1 = nn.Conv2d(in_channels, 64, 8, 1)
         self.conv2 = nn.Conv2d(64, 128, 6, 2)

@@ -137,24 +137,24 @@ class ResNet(nn.Module):
 def resnet18(num_classes=10):
     """ return a ResNet 18 object
     """
-    return ResNet(BasicBlock, [2, 2, 2, 2], num_classes=num_classes)
+    return ResNet(BasicBlock, [2, 2, 2, 2], num_classes=num_classes, name="resnet18")
 
 def resnet34(num_classes=10):
     """ return a ResNet 34 object
     """
-    return ResNet(BasicBlock, [3, 4, 6, 3], num_classes=num_classes)
+    return ResNet(BasicBlock, [3, 4, 6, 3], num_classes=num_classes, name="resnet34")
 
 def resnet50(num_classes=10):
     """ return a ResNet 50 object
     """
-    return ResNet(BottleNeck, [3, 4, 6, 3],num_classes=num_classes)
+    return ResNet(BottleNeck, [3, 4, 6, 3],num_classes=num_classes, name="resnet50")
 
 def resnet101(num_classes=10):
     """ return a ResNet 101 object
     """
-    return ResNet(BottleNeck, [3, 4, 23, 3],num_classes=num_classes)
+    return ResNet(BottleNeck, [3, 4, 23, 3],num_classes=num_classes, name="resnet101")
 
 def resnet152(num_classes=10):
     """ return a ResNet 152 object
     """
-    return ResNet(BottleNeck, [3, 8, 36, 3],num_classes=num_classes)
+    return ResNet(BottleNeck, [3, 8, 36, 3],num_classes=num_classes, name="resnet152")
