@@ -79,9 +79,9 @@ class Pipeline:
                 
                 if validation_module:
                     network.eval()
-                    _, _, validation_accuracy, validation_robust_accuracy, valid_loss  = validation_module.test(validation_loader, network)
+                    _, _, validation_accuracy, validation_robust_accuracy, validation_loss  = validation_module.test(validation_loader, network)
                     network.zero_grad()
-                    self.experiment_tracker.log({"validation_accuracy" : validation_accuracy, "validation_robust_accuracy" : validation_robust_accuracy, "validation_loss" : valid_loss})
+                    self.experiment_tracker.log({"validation_accuracy" : validation_accuracy, "validation_robust_accuracy" : validation_robust_accuracy, "validation_loss" : validation_loss})
                 
                     # Early stopper works on robust accuracy in adversarial training case and train accuracy in conventional case
                     if early_stopper:
@@ -135,7 +135,7 @@ class Pipeline:
         
             print(f'testing for attack: {module.attack} and epsilon: {module.epsilon}')
 
-            attack, epsilon, test_accuracy, robust_accuracy, valid_loss = module.test(test_loader, network)
+            attack, epsilon, test_accuracy, robust_accuracy, validation_loss = module.test(test_loader, network)
             self.experiment_tracker.log_test_result({"epsilon" : epsilon, "attack" : str(attack), "accuracy" : test_accuracy, "robust_accuracy" : robust_accuracy})
 
         self.experiment_tracker.log_table_result_table_online()
